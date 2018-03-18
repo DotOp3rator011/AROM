@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reuslt</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    {% load staticfiles %}
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Opinion','Percentage'],
+              ['Negative', {{negative_percentage}}],
+              ['Positive', {{positive_percentage}}],
+            ]);
+            var options = {
+              pieHole: 0.5,
+              slices: {
+                0: { color: '#000000' },
+                1: { color: '#FBB117' }
+              }
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h1>Amazon Reviews Classifier</h1>
+</header>
+<nav></nav>
+<div id="list_data">
+    <p>ASIN : {{ASIN}}</p>
+    <p>Number of reviews : {{total_reviews_count}}</p>
+    <p>Number of positive reviews : {{positive_reviews_count}}</p>
+    <p>Positive percentage of reviews : {{positive_percentage}}</p>
+    <p>Number of negative reviews : {{negative_reviews_count}}</p>
+    <p>Negative percentage of reviews : {{negative_percentage}}</p>
+</div>
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<footer></footer>
+</body>
+</html>

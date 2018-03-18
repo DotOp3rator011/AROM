@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ARC</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+</head>
+<body>
+<header>
+    <h1>Amazon Reviews Classifiers</h1>
+</header>
+<nav></nav>
+<form action="{% url 'sentimentanalysis:result' %}" method="post">
+    {% csrf_token %}
+    <label>Enter ASIN</label><br>
+    <input type="text" id="asin" name="asin" value="{{ASIN}}">
+    <input type="submit" id="analyze" name="analyze" value="Analyze">
+</form>
+<footer></footer>
+</body>
+</html>
