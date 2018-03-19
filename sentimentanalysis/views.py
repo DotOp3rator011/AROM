@@ -61,7 +61,7 @@ def aboutus(request):
     return render(request, "sentimentanalysis/aboutus.html", )
 
 
-def feedback(request):
+def contact(request):
     message = ""
     try:
         f = Feedback(Name=request.POST.get("name"),
@@ -71,4 +71,4 @@ def feedback(request):
         message = "Thank you for your feedback " + str(request.POST.get("name"))
     except:
         pass
-    return render(request, "sentimentanalysis/feedback.html", {"message": message})
+    return render(request, "sentimentanalysis/contact.html", {"message": message})
