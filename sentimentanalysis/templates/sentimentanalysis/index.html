@@ -1,21 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Colorlib">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <!-- Page Title -->
     <title>ARC</title>
-    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <!-- Simple line Icon -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <!-- fontawesone Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load staticfiles %}
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
-<header>
-    <h1>Amazon Reviews Classifiers</h1>
-</header>
-<nav></nav>
-<form action="{% url 'sentimentanalysis:result' %}" method="post">
-    {% csrf_token %}
-    <label>Enter ASIN</label><br>
-    <input type="text" id="asin" name="asin" value="{{ASIN}}">
-    <input type="submit" id="analyze" name="analyze" value="Analyze">
-</form>
-<footer></footer>
+<!--============================= HEADER =============================-->
+<div class="nav-menu">
+    <div class="container-fluid fixed dark-bg">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="{% url 'sentimentanalysis:index' %}">ARC</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span
+                            class="icon-menu"></span></button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'sentimentanalysis:index' %}">Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//END HEADER -->
+<!--============================= SLIDER =============================-->
+<section class="slider d-flex align-items-center" style="background-image: url('{% static 'images/slider.jpg'%}')" ;>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="slider-title_box">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="slider-content_wrap">
+                                <h1>The Amazon Reviews Classifier</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-10">
+                            <form class="form-wrap mt-4" action="{% url 'sentimentanalysis:result' %}" method="post">
+                                {% csrf_token %}
+                                <div class="btn-group justify-content-center" role="group" aria-label="Basic example">
+                                    <input type="text" name="asin" value="{{ASIN}}" placeholder="Enter ASIN"
+                                           class="btn-group1">
+                                    <button type="submit" name="analyse" value="Analyse" class="btn-form"><span
+                                            class="icon-magnifier search-icon"></span>Analyse<i
+                                            class="pe-7s-angle-right"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//END SLIDER -->
+<!--============================= FOOTER =============================-->
+<footer class="footer dark-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">Home</a></li>
+                        <li class="list-inline-item"><a href="#">About Us</a></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.amazon.in/" target="_blank"><span class="fa fa-amazon"></span></a></li>
+                        <li><a href="https://github.com/DotOp3rator011/AROM" target="_blank"><span
+                                class="fa fa-github"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--//END FOOTER -->
+
+<!-- jQuery, Bootstrap JS. -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+        $(window).scroll(function() {
+            // 100 = The point you would like to fade the nav in.
+
+            if ($(window).scrollTop() > 100) {
+
+                $('.fixed').addClass('is-sticky');
+
+            } else {
+
+                $('.fixed').removeClass('is-sticky');
+
+            };
+        });
+</script>
 </body>
 </html>
