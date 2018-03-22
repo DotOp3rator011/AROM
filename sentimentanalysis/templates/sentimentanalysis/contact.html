@@ -23,7 +23,6 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
 <body>
 <!--============================= HEADER =============================-->
 <div class="nav-menu">
@@ -63,13 +62,42 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="slider-content_wrap">
-                                <h1>Contact</h1>
+                                <h1>Contact us</h1>
+                                <h5>We'd love to hear from you!</h5>
                             </div>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
-                            <!-- -->
+                            <form class="form-wrap mt-4" action="{% url 'sentimentanalysis:result' %}" method="post">
+                                {% csrf_token %}
+                                <div class="justify-content-center" role="group" aria-label="Basic example">
+                                    <div class="row input-container">
+                                        <div class="col-xs-12">
+                                            <div class="styled-input wide">
+                                                <input type="text" required/>
+                                                <label>Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="styled-input wide">
+                                                <input type="text" required/>
+                                                <label>Email</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12">
+                                            <div class="styled-input wide">
+                                                <textarea required></textarea>
+                                                <label>Message</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="btn-lrg submit-btn">Send Message</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
