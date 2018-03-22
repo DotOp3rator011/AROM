@@ -63,39 +63,29 @@
                         <div class="col-md-12">
                             <div class="slider-content_wrap">
                                 <h1>Contact us</h1>
-                                <h5>We'd love to hear from you!</h5>
+                                <h5>{{greet}}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
-                            <form class="form-wrap mt-4" action="{% url 'sentimentanalysis:result' %}" method="post">
+                            <form class="form-wrap mt-4" method="post">
                                 {% csrf_token %}
-                                <div class="justify-content-center" role="group" aria-label="Basic example">
-                                    <div class="row input-container">
-                                        <div class="col-xs-12">
-                                            <div class="styled-input wide">
-                                                <input type="text" required/>
-                                                <label>Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12">
-                                            <div class="styled-input wide">
-                                                <input type="text" required/>
-                                                <label>Email</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xs-12">
-                                            <div class="styled-input wide">
-                                                <textarea required></textarea>
-                                                <label>Message</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12">
-                                            <div class="btn-lrg submit-btn">Send Message</div>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <input type="text" name="name" placeholder="Name" value="{{Name}}"
+                                           class="btn-group3"><br><span class="val-error">{{name}}</span><br>
+                                </div>
+                                <div>
+                                    <input type="text" name="email" placeholder="Email" value="{{Email}}"
+                                           class="btn-group3"><br><span class="val-error">{{email}}</span><br>
+                                </div>
+                                <div>
+                                    <textarea name="message" placeholder="message"
+                                              class="btn-group3 message">{{Message}}</textarea><br><br>
+                                </div>
+                                <div>
+                                    <button type="submit" name="send" value="Send" class="btn-form1">
+                                        Send<i class="pe-7s-angle-right"></i></button>
                                 </div>
                             </form>
                         </div>
