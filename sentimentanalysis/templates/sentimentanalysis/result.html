@@ -65,19 +65,25 @@
                         <div class="col-md-12">
                             <div class="slider-content_wrap">
                                 <div id="list_data">
-                                    <p>ASIN : {{ASIN}}</p>
-                                    <p>Number of reviews : {{total_reviews_count}}</p>
-                                    <p>Number of positive reviews : {{positive_reviews_count}}</p>
-                                    <p>Positive percentage of reviews : {{positive_percentage}}</p>
-                                    <p>Number of negative reviews : {{negative_reviews_count}}</p>
-                                    <p>Negative percentage of reviews : {{negative_percentage}}</p>
+                                    <table style="width:100%">
+                                        <tr>
+                                            <th><h5>Total reviews</h5></th>
+                                            <th><h5>Positive reviews</h5></th>
+                                            <th><h5>Negative reviews</h5></th>
+                                        </tr>
+                                        <tr>
+                                            <td><h5>{{total_reviews_count}}</h5></td>
+                                            <td><h5>{{positive_reviews_count}}</h5></td>
+                                            <td><h5>{{negative_reviews_count}}</h5></td>
+                                        </tr>
+                                    </table>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-md-10">
+                                            <div id="piechart_3d" style="width: 900px; height: 400px;"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-10">
-                            <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
                         </div>
                     </div>
                 </div>
@@ -125,26 +131,26 @@
           ['Positive', {{positive_percentage}}],
         ]);
         var options = {
-          pieHole: 0.5,
+          pieHole: 0.4,
           slices: {
-            0: { color: '#000000' },
-            1: { color: '#FBB117' }
-          }
+            0: { color: '#d81515' },
+            1: { color: '#00b1f7' },
+          },
+          chartArea:{left: 300, top: 50, width: '50%', height: '75%'},
+          backgroundColor: {fill: 'transparent'},
+          pieSliceBorderColor: '#000',
+          legendTextStyle: {color: '#fff'},
         };
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
         chart.draw(data, options);
     }
+
     $(window).scroll(function() {
         // 100 = The point you would like to fade the nav in.
-
         if ($(window).scrollTop() > 100) {
-
             $('.fixed').addClass('is-sticky');
-
         } else {
-
             $('.fixed').removeClass('is-sticky');
-
         };
     });
 </script>
