@@ -1,4 +1,4 @@
-# AROM
+# Objective
 
 To extract product reviews, from amazon.com and classifying the reviews as positive or negative. Implementing web
 scraping technologies, to extract reviews of the user desired product, from amazon.com. Implementing a statistical
