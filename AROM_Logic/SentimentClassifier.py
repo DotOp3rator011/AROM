@@ -28,7 +28,7 @@ class Classifier:
             corpus (list): list of corpus data
         """
 
-        with open("C:/Users/rahul/PycharmProjects/AROM/AROM_Logic/Corpus.json", "r") as jf:
+        with open("C:/Users/rahul/PycharmProjects/AmazonReviewsClassifier/AROM_Logic/Corpus.json", "r") as jf:
             corpus = json.load(jf)
             random.shuffle(corpus)
         return corpus

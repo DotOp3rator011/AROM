@@ -62,7 +62,7 @@ class Scraper:
 
         chromeOptions = Options()
         chromeOptions.add_argument("--headless")
-        driverPath = "C:/Users/rahul/PycharmProjects/AROM/AROM_Logic/chromedriver"
+        driverPath = "C:/Users/rahul/PycharmProjects/AmazonReviewsClassifier/AROM_Logic/chromedriver"
         driver = webdriver.Chrome(driverPath, chrome_options=chromeOptions)
         driver.get(url)
         driver.find_element_by_xpath("""//*[@id="reviews-medley-footer"]/div[1]/a""").click()
